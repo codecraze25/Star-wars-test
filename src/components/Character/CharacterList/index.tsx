@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react"
-import { Character } from "../../../types"
-import { fetchAllCharactersCount, fetchCharactersByPage } from "../../../helpers/fetch";
-import { ITEMS_PER_PAGE } from "../../../constants/consts";
-import { Loading, Pagination } from "../../Common";
-import { CharacterCard } from "../CharacterCard";
+import { useEffect, useState } from 'react';
+import { Character } from '../../../types';
+import {
+  fetchAllCharactersCount,
+  fetchCharactersByPage,
+} from '../../../helpers/fetch';
+import { ITEMS_PER_PAGE } from '../../../constants/consts';
+import { Loading, Pagination } from '../../Common';
+import { CharacterCard } from '../CharacterCard';
 
 const CharacterList: React.FC = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -21,7 +24,7 @@ const CharacterList: React.FC = () => {
       } catch (err) {
         setError('Failed to fetch total characters count');
       }
-    }
+    };
     loadTotalPages();
   }, []);
 
@@ -66,7 +69,7 @@ const CharacterList: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export { CharacterList }
+export { CharacterList };

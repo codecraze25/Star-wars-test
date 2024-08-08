@@ -1,24 +1,30 @@
 import { useEffect, useState } from 'react';
-import { Character } from "../../../types"
-import { getRandomInt } from "../../../helpers/math";
+import { Character } from '../../../types';
+import { getRandomInt } from '../../../helpers/math';
+import { CharacterModal } from '../CharacterModal';
 
 interface CharacterCardProps {
-  character: Character
+  character: Character;
 }
 
 const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
   const { name } = character;
 
   const [imageId, setImageId] = useState<number | null>(null);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   useEffect(() => {
     setImageId(getRandomInt());
   }, []);
 
+  const handleOpen = (): void => setIsOpen(true);
+  const handleClose = (): void => setIsOpen(false);
+
   if (imageId === null) return null;
   return (
     <div
       className="w-full md:w-1/2 lg:w-1/5 mb-8 cursor-pointer"
+      onClick={handleOpen}
     >
       <div className="rounded overflow-hidden shadow mx-2 dark:bg-gray-800 dark:text-white">
         <div className="relative overflow-hidden">
@@ -38,8 +44,13 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
           </div>
         </div>
       </div>
+      <CharacterModal
+        character={character}
+        isOpen={isOpen}
+        onClose={handleClose}
+      />
     </div>
   );
-}
+};
 
-export { CharacterCard }
+export { CharacterCard };
