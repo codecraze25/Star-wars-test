@@ -1,7 +1,8 @@
 import './App.css';
+import { CharacterList } from "./components/Character";
 
 const App: React.FC = () => {
-  return <h1 className="text-center text-blue-500 text-lg">Hello World</h1>;
+  return <CharacterList />;
 };
 
 export default App;

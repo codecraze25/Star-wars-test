@@ -14,7 +14,6 @@ const Pagination: React.FC<PaginationProps> = ({
 }) => {
   // Helper function to create an array of page numbers with ellipsis
   const createPageNumbers = () => {
-    const pages = [];
     const range = (start: number, end: number) =>
       Array.from({ length: end - start + 1 }, (_, i) => i + start);
 
