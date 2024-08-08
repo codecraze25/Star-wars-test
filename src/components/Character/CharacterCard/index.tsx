@@ -23,7 +23,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
       <div className="rounded overflow-hidden shadow mx-2 dark:bg-gray-800 dark:text-white">
         <div className="relative overflow-hidden">
           <img
-            className="w-full"
+            className="w-full transform transition-transform duration-500 ease-in-out hover:scale-125"
             src={`https://picsum.photos/seed/${imageId}/200`}
             alt={name}
           />
